@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class text : MonoBehaviour {
+
+    public Sprite[] gallery;
+    public Button next;
+    public Button prev;
+    public Button pic;
+    int count = 0;
+
+    void Awake()
+    {
+        gallery = Resources.LoadAll<Sprite>("text");
+    }
+
+    public void On_Click()
+    {
+        count++;
+        next.image.sprite = gallery[count];
+        if (count == gallery.Length - 1)
+        {
+            count = 0;
+        }
+
+    }
+}
