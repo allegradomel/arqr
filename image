@@ -1,0 +1,31 @@
+ using UnityEngine;
+ using UnityEngine.UI;
+ using UnityEngine.Sprites;
+ using System.Collections;
+
+public class image : MonoBehaviour
+{
+
+    public Sprite[] gallery;
+    public Button next;
+    public Button prev;
+    public Button pic;
+    int count = 0;
+
+    void Awake()
+    {
+        gallery = Resources.LoadAll<Sprite>("plane pic");     
+    }
+
+    public void On_Click()
+    { 
+        count++;
+        next.image.sprite = gallery[count];
+        if(count == gallery.Length-1)
+        {
+            count = 0;
+        }
+
+    }
+}
+    
